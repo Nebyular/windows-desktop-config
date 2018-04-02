@@ -23,6 +23,7 @@ Write-Host Disabling Windows Media Player...
 Disable-WindowsOptionalFeature -Online -FeatureName WindowsMediaPlayer -norestart | Out-Null
 Write-Host Done!
 
+
 #Disable Flash in Edge
 Write-Host Disabling Flash in Edge...
 $registryPath = "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Addons"
@@ -40,7 +41,9 @@ Write-Host Done!
 Write-Host Enabling Windows Subsystem for Linux...
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -norestart | Out-Null
 Write-Host Done!
-
+Write-Host Enabling Ransomware Protection...
+Set-MpPreference -EnableControlledFolderAccess Enabled
+Write-Host Done!
 
 #Takeown command in explorer context menu
 Write-Host Implementing Take Ownership Context Menu Command...
